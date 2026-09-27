@@ -1,5 +1,29 @@
 # ASD-STE100 writing skill
 
+<!-- key-information:start -->
+## Key information
+
+**Objective:** Make all documents clear and plain with ASD-STE100 Simplified Technical English (STE).
+
+This folder is one of six `000-0-` folders in `~/Apps`. Each folder has one
+objective.
+
+- **Needs:** Nothing.
+- **Gives:** The writing rules and the STE check for the documents of all folders.
+- **On a new computer:** set up this folder in step 2 of 6.
+- **Map of all six folders:** <https://claude.ai/artifact/W1ajTT5RGF5ZmKuJ4cRAwa>. It is a private claude.ai page. Log
+  in to open it, and then select the **ASD-STE100** tab.
+
+| Folder | Objective | GitHub |
+|---|---|---|
+| `000-0-dotfiles` | Set up one computer (shell, terminal, Git, fonts and system tools), the same way on every computer | [000-dotfiles](https://github.com/kairin/000-dotfiles) |
+| **000-0-ASD-STE100** | Make all documents clear and plain with ASD-STE100 Simplified Technical English (STE) | [ASD-STE100](https://github.com/kairin/ASD-STE100) |
+| `000-0-password` | Give an API key to one command only, when that command asks for it | [000-0-password](https://github.com/kairin/000-0-password) |
+| `000-0-ai` | Keep the configuration, agent files and documents for the AI tools in one place | [000-0-ai](https://github.com/kairin/000-0-ai) |
+| `000-0-workspace` | Keep the tools that work on all the repositories in `~/Apps`, not on one computer | [000-0-workspace](https://github.com/kairin/000-0-workspace) |
+| `000-0-tables` | Be the database stack for all projects, and the memory of how you chose and used each database | [000-tables](https://github.com/kairin/000-tables) |
+<!-- key-information:end -->
+
 A skill that rewrites prose (docs, READMEs, PR descriptions, error
 messages, release notes, comments, tool descriptions, system prompts. Never
 code) into ASD-STE100 Simplified Technical English, to remove "AI slop".
@@ -14,14 +38,15 @@ The downstream delivery work is tracked in
 
 ## Workspace layout
 
-This repository must live at `~/Apps/ASD-STE100`. Two sibling clones must also exist:
+This repository lives at `~/Apps/000-0-ASD-STE100`. The table in "Key
+information" above lists the other five `000-0-` folders.
 
-- `~/Apps/000-dotfiles`
-- `~/Apps/tmux-cheat-sheet`
+These places on the computer point to files in this folder:
 
-If `000-dotfiles` is present, run `~/Apps/000-dotfiles/scripts/ensure-workspace-layout.sh`.
-That command creates `~/Apps/AGENTS.md` and `~/Apps/GEMINI.md`
-as symlinks to `~/Apps/000-dotfiles/AGENTS.md`.
+- `~/.claude/CLAUDE.md`: the global rule to write in STE
+- `~/.claude/hooks/ste-lint.sh`: runs `ste-lint.py` after each write to a
+  `.md`, `.mdx` or `.txt` file
+- `~/.claude/skills/ste-writing/`: three links to the skill files
 
 ## References
 
