@@ -3,25 +3,27 @@
 <!-- key-information:start -->
 ## Key information
 
-**Objective:** Make all documents clear and plain with ASD-STE100 Simplified Technical English (STE).
-
-This folder is one of six `000-0-` folders in `~/Apps`. Each folder has one
-objective.
-
+- **Goal:** Every document is clear to a reader who is not a developer.
+- **Objective:** Give the STE writing rules and the check that every document must pass.
+- **Tier:** `0`. Core. Every project must follow its rules, with no exceptions.
 - **Needs:** Nothing.
 - **Gives:** The writing rules and the STE check for the documents of all folders.
-- **On a new computer:** set up this folder in step 2 of 6.
-- **Map of all six folders:** <https://claude.ai/artifact/W1ajTT5RGF5ZmKuJ4cRAwa>. It is a private claude.ai page. Log
-  in to open it, and then select the **ASD-STE100** tab.
+- **On a new computer:** set it up step 2 of 6 in the core tier.
 
-| Folder | Objective | GitHub |
-|---|---|---|
-| `000-0-dotfiles` | Set up one computer (shell, terminal, Git, fonts and system tools), the same way on every computer | [000-dotfiles](https://github.com/kairin/000-dotfiles) |
-| **000-0-ASD-STE100** | Make all documents clear and plain with ASD-STE100 Simplified Technical English (STE) | [ASD-STE100](https://github.com/kairin/ASD-STE100) |
-| `000-0-password` | Give an API key to one command only, when that command asks for it | [000-0-password](https://github.com/kairin/000-0-password) |
-| `000-0-ai` | Keep the configuration, agent files and documents for the AI tools in one place | [000-0-ai](https://github.com/kairin/000-0-ai) |
-| `000-0-workspace` | Keep the tools that work on all the repositories in `~/Apps`, not on one computer | [000-0-workspace](https://github.com/kairin/000-0-workspace) |
-| `000-0-tables` | Be the database stack for all projects, and the memory of how you chose and used each database | [000-tables](https://github.com/kairin/000-tables) |
+This folder is part of the `~/Apps` SOP (Standard Operating Procedure). The
+number in the name of each folder is its tier. The SOP map is at
+<https://claude.ai/artifact/W1ajTT5RGF5ZmKuJ4cRAwa>. It is a private claude.ai page. Log in to open it, and then select
+the **ASD-STE100** tab.
+
+| Folder | Tier | Goal | GitHub |
+|---|---|---|---|
+| `000-0-dotfiles` | 0 | Every computer works the same way | [000-dotfiles](https://github.com/kairin/000-dotfiles) |
+| **000-0-ASD-STE100** | 0 | Every document is clear to a reader who is not a developer | [ASD-STE100](https://github.com/kairin/ASD-STE100) |
+| `000-0-password` | 0 | No key gets to a program that does not need it | [000-0-password](https://github.com/kairin/000-0-password) |
+| `000-0-ai` | 0 | AI tools work the same way on every computer and follow the SOP | [000-0-ai](https://github.com/kairin/000-0-ai) |
+| `000-0-workspace` | 0 | All repositories in `~/Apps` stay healthy and consistent | [000-0-workspace](https://github.com/kairin/000-0-workspace) |
+| `000-0-tables` | 0 | You never research the same database question twice, and what you know links across repositories | [000-tables](https://github.com/kairin/000-tables) |
+| `000-111-learn` | 111 | Write very small, fast programs that run close to the hardware | [000-111-learn](https://github.com/kairin/000-111-learn) |
 <!-- key-information:end -->
 
 A skill that rewrites prose (docs, READMEs, PR descriptions, error
