@@ -4,7 +4,7 @@
 
 This review asks one question: are there files in Git that should be ignored? The repository is `kairin/000-0-ASD-STE100`, and it is public.
 
-The same concerns, with the same IDs, are on the SOP map at <https://claude.ai/artifact/W1ajTT5RGF5ZmKuJ4cRAwa>. Log in, and then select the **review** tab.
+The same concerns, with the same IDs, are on the SOP map. Its link is in the README of `000-0-workspace`. Open it, and then select the **review** tab.
 
 ## Result
 
