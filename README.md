@@ -11,9 +11,8 @@
 - **On a new computer:** set it up step 2 of 6 in the core tier.
 
 This folder is part of the `~/Apps` SOP (Standard Operating Procedure). The
-number in the name of each folder is its tier. The SOP map is at
-<https://claude.ai/artifact/W1ajTT5RGF5ZmKuJ4cRAwa>. It is a private claude.ai page. Log in to open it, and then select
-the **ASD-STE100** tab.
+number in the name of each folder is its tier. The SOP map is a private page. Its link is in the README of
+`000-0-workspace`. Open it, and then select the **ASD-STE100** tab.
 
 | Folder | Tier | Goal | GitHub |
 |---|---|---|---|
@@ -43,12 +42,13 @@ The downstream delivery work is tracked in
 This repository lives at `~/Apps/000-0-ASD-STE100`. The table in "Key
 information" above lists the other five `000-0-` folders.
 
-These places on the computer point to files in this folder:
+Three places in the configuration of the AI tools on this computer point to
+files in this folder:
 
-- `~/.claude/CLAUDE.md`: the global rule to write in STE
-- `~/.claude/hooks/ste-lint.sh`: runs `ste-lint.py` after each write to a
-  `.md`, `.mdx` or `.txt` file
-- `~/.claude/skills/ste-writing/`: three links to the skill files
+- the global rule to write in STE;
+- a hook that runs `ste-lint.py` after each write to a `.md`, `.mdx` or
+  `.txt` file;
+- three links to the skill files.
 
 ## References
 
