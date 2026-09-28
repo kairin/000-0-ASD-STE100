@@ -3,7 +3,7 @@ set -eu
 
 repo_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 delivery_doc="$repo_dir/docs/ste-delivery.md"
-dotfiles_repo="${DOTFILES_REPO:-$repo_dir/../000-dotfiles}"
+dotfiles_repo="${DOTFILES_REPO:-$repo_dir/../000-0-dotfiles}"
 delivery_home="${STE_DELIVERY_HOME:-$HOME}"
 sync_script="$dotfiles_repo/scripts/sync-ste-writing.sh"
 package_dir="$dotfiles_repo/skills/ste-writing"
@@ -145,7 +145,7 @@ for destination in \
   rg -q --fixed-strings "$destination" "$delivery_doc"
 done
 
-issue_url="https://github.com/kairin/ASD-STE100/issues/10"
+issue_url="https://github.com/kairin/000-0-ASD-STE100/issues/10"
 rg -q --fixed-strings "$issue_url" "$repo_dir/README.md"
 rg -q --fixed-strings "$issue_url" "$delivery_doc"
 

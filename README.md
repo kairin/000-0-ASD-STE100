@@ -17,12 +17,12 @@ the **ASD-STE100** tab.
 
 | Folder | Tier | Goal | GitHub |
 |---|---|---|---|
-| `000-0-dotfiles` | 0 | Every computer works the same way | [000-dotfiles](https://github.com/kairin/000-dotfiles) |
-| **000-0-ASD-STE100** | 0 | Every document is clear to a reader who is not a developer | [ASD-STE100](https://github.com/kairin/ASD-STE100) |
+| `000-0-dotfiles` | 0 | Every computer works the same way | [000-0-dotfiles](https://github.com/kairin/000-0-dotfiles) |
+| **000-0-ASD-STE100** | 0 | Every document is clear to a reader who is not a developer | [000-0-ASD-STE100](https://github.com/kairin/000-0-ASD-STE100) |
 | `000-0-password` | 0 | No key gets to a program that does not need it | [000-0-password](https://github.com/kairin/000-0-password) |
 | `000-0-ai` | 0 | AI tools work the same way on every computer and follow the SOP | [000-0-ai](https://github.com/kairin/000-0-ai) |
 | `000-0-workspace` | 0 | All repositories in `~/Apps` stay healthy and consistent | [000-0-workspace](https://github.com/kairin/000-0-workspace) |
-| `000-0-tables` | 0 | You never research the same database question twice, and what you know links across repositories | [000-tables](https://github.com/kairin/000-tables) |
+| `000-0-tables` | 0 | You never research the same database question twice, and what you know links across repositories | [000-0-tables](https://github.com/kairin/000-0-tables) |
 | `000-111-learn` | 111 | Write very small, fast programs that run close to the hardware | [000-111-learn](https://github.com/kairin/000-111-learn) |
 <!-- key-information:end -->
 
@@ -36,7 +36,7 @@ It follows the method shown in the video and source repository below.
 The skill is for Hermes, Pi, OpenAI Codex CLI, and Google Antigravity (`agy`).
 The delivery map is in [docs/ste-delivery.md](docs/ste-delivery.md).
 The downstream delivery work is tracked in
-[ASD-STE100 issue #10](https://github.com/kairin/ASD-STE100/issues/10).
+[000-0-ASD-STE100 issue #10](https://github.com/kairin/000-0-ASD-STE100/issues/10).
 
 ## Workspace layout
 

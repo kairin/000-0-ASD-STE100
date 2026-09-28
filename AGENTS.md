@@ -6,8 +6,8 @@ This repository is one of three that must exist in `~/Apps`. An agent that reads
 
 | Path | Remote |
 |---|---|
-| `~/Apps/000-dotfiles` | `https://github.com/kairin/000-dotfiles.git` |
-| `~/Apps/ASD-STE100` | `https://github.com/kairin/ASD-STE100.git` |
+| `~/Apps/000-0-dotfiles` | `https://github.com/kairin/000-0-dotfiles.git` |
+| `~/Apps/000-0-ASD-STE100` | `https://github.com/kairin/000-0-ASD-STE100.git` |
 | `~/Apps/tmux-cheat-sheet` | `https://github.com/kairin/tmux-cheat-sheet.git` |
 
 `~/Apps` is a workspace directory. It is not a git repository.

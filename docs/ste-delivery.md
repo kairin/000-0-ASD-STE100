@@ -4,7 +4,7 @@ This repository is the source for one reusable STE payload.
 The downstream repository packages three files for automatic delivery.
 Two files remain manual because they are not skill files.
 This work is tracked in
-[ASD-STE100 issue #10](https://github.com/kairin/ASD-STE100/issues/10).
+[000-0-ASD-STE100 issue #10](https://github.com/kairin/000-0-ASD-STE100/issues/10).
 
 ## Payload files
 
