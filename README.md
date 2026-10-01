@@ -3,8 +3,7 @@
 <!-- key-information:start -->
 ## Key information
 
-- **Goal:** Every document is clear to a reader who is not a developer.
-- **Objective:** Give the STE writing rules and the check that every document must pass.
+- **Description:** Provides Simplified Technical English writing rules and a prose checker to help readers understand technical documents.
 - **Tier:** `0`. Core. Every project must follow its rules, with no exceptions.
 - **Needs:** Nothing.
 - **Gives:** The writing rules and the STE check for the documents of all folders.
