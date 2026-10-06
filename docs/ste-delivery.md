@@ -8,8 +8,10 @@ This work is tracked in
 
 ## Payload files
 
-The five files form one payload. The synchronizer copies the first three.
-The last two files remain manual.
+The five files form one payload. The first three go into the package in
+`000-0-ai/skills/ste-writing/`. The last two files remain manual.
+The synchronizer script and the dotfiles manifest no longer exist
+(2026-10-07). Copy the files by hand.
 
 | Role | Source file | Package file | Delivery |
 |---|---|---|---|
@@ -40,9 +42,15 @@ The package files use the same directory as `SKILL.md`.
 | OpenAI Codex CLI | `~/.agents/skills/ste-writing/` | None |
 | Google Antigravity (`agy`) | `~/.agents/skills/ste-writing/` | `~/.gemini/config/skills/ste-writing/` |
 
-The synchronizer refreshes only the three automatic package files.
-The downstream manifest copies those files to active destinations.
-It selects destinations from installed tool commands.
+Copy the three automatic files into `000-0-ai/skills/ste-writing/` by hand.
+Then copy that folder to the destination of each installed tool:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -r ~/Apps/000-0-ai/skills/ste-writing ~/.agents/skills/
+```
+
+Copy to a vendor destination only for an installed tool that uses one.
 Do not claim a runtime result for a tool that is not installed.
 
 ## Comparison checks
@@ -50,9 +58,10 @@ Do not claim a runtime result for a tool that is not installed.
 Run the full local payload check from this repository:
 
 ```bash
-DOTFILES_REPO=../000-dotfiles scripts/check-ste-payload.sh
+AI_REPO=../000-0-ai scripts/check-ste-payload.sh
 ```
 
+The check needs `rg` (ripgrep). On RHEL 10, it is in EPEL 10.
 The check compares the three automatic source files with their package files.
 It then compares those files with each required installed destination.
 The check also makes sure that the two manual files have no package copy.
@@ -69,5 +78,6 @@ STE_PAYLOAD_CI=1 bash scripts/check-ste-payload.sh
 
 CI checks all five source files, the delivery mappings, the manual and
 automatic rules, the supported-tool claims, and the active purge checks. CI
-does not check the sibling `000-dotfiles` package or installed destinations.
+does not check the package in the sibling `000-0-ai` repository
+(`skills/ste-writing/`) or installed destinations.
 The full local mode keeps those cross-repository and machine checks.
