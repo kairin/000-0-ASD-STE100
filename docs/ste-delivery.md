@@ -9,7 +9,7 @@ This work is tracked in
 ## Payload files
 
 The five files form one payload. The first three go into the package in
-`000-0-ai/skills/ste-writing/`. The last two files remain manual.
+`skills/ste-writing/` in the owner's AI tools repository. The last two files remain manual.
 The synchronizer script and the dotfiles manifest no longer exist
 (2026-10-07). Copy the files by hand.
 
@@ -42,12 +42,12 @@ The package files use the same directory as `SKILL.md`.
 | OpenAI Codex CLI | `~/.agents/skills/ste-writing/` | None |
 | Google Antigravity (`agy`) | `~/.agents/skills/ste-writing/` | `~/.gemini/config/skills/ste-writing/` |
 
-Copy the three automatic files into `000-0-ai/skills/ste-writing/` by hand.
+Copy the three automatic files into `skills/ste-writing/` of the AI tools repository by hand. Set `AI_REPO` to the path of that repository.
 Then copy that folder to the destination of each installed tool:
 
 ```bash
 mkdir -p ~/.agents/skills
-cp -r ~/Apps/000-0-ai/skills/ste-writing ~/.agents/skills/
+cp -r "$AI_REPO/skills/ste-writing" ~/.agents/skills/
 ```
 
 Copy to a vendor destination only for an installed tool that uses one.
@@ -58,7 +58,7 @@ Do not claim a runtime result for a tool that is not installed.
 Run the full local payload check from this repository:
 
 ```bash
-AI_REPO=../000-0-ai scripts/check-ste-payload.sh
+AI_REPO=<path to the AI tools repository> scripts/check-ste-payload.sh
 ```
 
 The check needs `rg` (ripgrep). On RHEL 10, it is in EPEL 10.
@@ -78,6 +78,6 @@ STE_PAYLOAD_CI=1 bash scripts/check-ste-payload.sh
 
 CI checks all five source files, the delivery mappings, the manual and
 automatic rules, the supported-tool claims, and the active purge checks. CI
-does not check the package in the sibling `000-0-ai` repository
+does not check the package in the AI tools repository
 (`skills/ste-writing/`) or installed destinations.
 The full local mode keeps those cross-repository and machine checks.
