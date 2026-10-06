@@ -3,7 +3,7 @@ set -eu
 
 repo_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 delivery_doc="$repo_dir/docs/ste-delivery.md"
-ai_repo="${AI_REPO:-$repo_dir/../000-0-ai}"
+ai_repo="${AI_REPO:-}"
 delivery_home="${STE_DELIVERY_HOME:-$HOME}"
 package_dir="$ai_repo/skills/ste-writing"
 ci_mode="${STE_PAYLOAD_CI:-}"
@@ -18,6 +18,10 @@ source_files=(
 
 test -f "$delivery_doc"
 if test "$ci_mode" != 1; then
+  if test -z "$ai_repo"; then
+    echo "set AI_REPO to the path of the AI tools repository" >&2
+    exit 2
+  fi
   test -d "$package_dir"
 fi
 
