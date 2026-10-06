@@ -3,10 +3,9 @@ set -eu
 
 repo_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 delivery_doc="$repo_dir/docs/ste-delivery.md"
-dotfiles_repo="${DOTFILES_REPO:-$repo_dir/../000-0-dotfiles}"
+ai_repo="${AI_REPO:-$repo_dir/../000-0-ai}"
 delivery_home="${STE_DELIVERY_HOME:-$HOME}"
-sync_script="$dotfiles_repo/scripts/sync-ste-writing.sh"
-package_dir="$dotfiles_repo/skills/ste-writing"
+package_dir="$ai_repo/skills/ste-writing"
 ci_mode="${STE_PAYLOAD_CI:-}"
 
 source_files=(
@@ -19,7 +18,6 @@ source_files=(
 
 test -f "$delivery_doc"
 if test "$ci_mode" != 1; then
-  test -f "$sync_script"
   test -d "$package_dir"
 fi
 
@@ -44,18 +42,12 @@ automated_mappings=(
 )
 
 if test "$ci_mode" != 1; then
-  rg -q --fixed-strings 'sync_one() {' "$sync_script"
-fi
-
-if test "$ci_mode" != 1; then
   for mapping in "${automated_mappings[@]}"; do
     source_file="${mapping%%:*}"
     package_file="${mapping#*:}"
     test -f "$package_dir/$package_file"
     cmp -s "$repo_dir/$source_file" "$package_dir/$package_file"
     echo "source-package match: $source_file -> $package_file"
-    sync_line="sync_one \"\$ASD_STE100_SRC/$source_file\" \"\$SKILL_DIR/$package_file\""
-    rg -q --fixed-strings "$sync_line" "$sync_script"
   done
 fi
 
@@ -65,9 +57,8 @@ manual_files=(
 )
 
 for source_file in "${manual_files[@]}"; do
-  sync_line="sync_one \"\$ASD_STE100_SRC/$source_file\""
-  if test "$ci_mode" != 1 && rg -q --fixed-strings "$sync_line" "$sync_script"; then
-    echo "manual file is listed as automated: $source_file" >&2
+  if test "$ci_mode" != 1 && test -e "$package_dir/$source_file"; then
+    echo "manual file has a package copy: $source_file" >&2
     exit 1
   fi
 done
@@ -165,4 +156,4 @@ if rg -n -i \
   exit 1
 fi
 
-echo "STE source, package, synchronizer, destination, and purge checks passed"
+echo "STE source, package, destination, and purge checks passed"

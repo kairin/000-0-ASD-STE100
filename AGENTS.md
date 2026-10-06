@@ -2,24 +2,20 @@
 
 ## Workspace layout (read first)
 
-This repository is one of three that must exist in `~/Apps`. An agent that reads this file must make sure all three clones are present before other work.
+This repository is in the `~/Apps` workspace. `~/Apps` is a workspace directory. It is not a git repository.
+
+The core repositories must be present before other work:
 
 | Path | Remote |
 |---|---|
 | `~/Apps/000-0-dotfiles` | `https://github.com/kairin/000-0-dotfiles.git` |
 | `~/Apps/000-0-ASD-STE100` | `https://github.com/kairin/000-0-ASD-STE100.git` |
-| `~/Apps/tmux-cheat-sheet` | `https://github.com/kairin/tmux-cheat-sheet.git` |
+| `~/Apps/000-0-ai` | `https://github.com/kairin/000-0-ai.git` |
+| `~/Apps/000-0-workspace` | `https://github.com/kairin/000-0-workspace.git` |
 
-`~/Apps` is a workspace directory. It is not a git repository.
+If a path does not exist, clone it with `gh repo clone kairin/<name>`.
 
-Before any other work:
-
-1. Make sure each path exists and is a git clone.
-2. If a path does not exist, clone it from the remote in the table.
-3. If `~/Apps/000-dotfiles` exists, run `~/Apps/000-dotfiles/scripts/ensure-workspace-layout.sh`.
-4. If `000-dotfiles` does not exist, clone it first. Then run the command.
-
-The script creates `~/Apps/AGENTS.md` and `~/Apps/GEMINI.md` as symlinks to `~/Apps/000-dotfiles/AGENTS.md`.
+There is no layout script. The old `ensure-workspace-layout.sh` was removed. The manual steps are in `000-0-workspace/docs/workspace-layout.md`.
 
 `GEMINI.md` in this repository is a compatibility symlink to this file.
 
