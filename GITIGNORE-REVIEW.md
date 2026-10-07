@@ -18,6 +18,8 @@ This repository has 1 concern(s).
 |---|---|---|---|---|
 | STE-1 | Medium | The README key block lists the names of five private repositories and the link to the private SOP map. | The repository is public. Everyone can see the names, for example `000-0-password`. The contents stay private, and the map link opens only for the owner. | Keep it, or remove the folder table from the key block of this README only. |
 
+Update 2026-10-08: STE-1 is closed. The owner decided to keep the key block. Private repository names and their GitHub links are allowed in public repositories, because people without access cannot open them.
+
 ## Severity
 
 | Severity | Meaning |
@@ -40,7 +42,7 @@ This repository has 1 concern(s).
 
 ## For the reviewer
 
-- [ ] STE-1: agree with the severity, and choose: fix as proposed, fix another way, or keep.
+- [x] STE-1: keep (owner decision, 2026-10-08).
 - [ ] Confirm that no other file in this repository must be ignored.
 - [ ] Write your name and the date below. Then close the review.
 
