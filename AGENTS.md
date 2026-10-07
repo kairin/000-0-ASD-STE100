@@ -18,3 +18,10 @@ The checker is an anti-slop denylist. A lint pass is not Issue 9 conformance.
 
 Source files live in this repository. A downstream delivery repository copies
 the skill to Hermes, Pi, OpenAI Codex CLI, and Google Antigravity (`agy`).
+
+## Git identity
+
+Commit as `Mister K <678459+kairin@users.noreply.github.com>`. This is the
+public GitHub name and the GitHub noreply email. Do not commit with another
+name or with a personal email address. Check with `git config user.name` and
+`git config user.email` before you commit.
