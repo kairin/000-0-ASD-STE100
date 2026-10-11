@@ -4,7 +4,7 @@
 
 This repository is one folder of the owner's `~/Apps` workspace. `~/Apps` is a workspace directory. It is not a git repository. The owner's private notes describe the other folders.
 
-`CLAUDE.md` and `GEMINI.md` are regular pointer files to this file, not symlinks. Do not edit them. Update instructions here only. See `~/Apps/000-0-workspace/docs/agent-instruction-files.md`.
+The other agent instruction files in this folder are regular pointer files to this file. They are not symlinks. Do not edit them. Update instructions here only. See `~/Apps/000-0-workspace/docs/agent-instruction-files.md`.
 
 ## Writing rule
 
