@@ -7,7 +7,7 @@
 - **Tier:** `0`. Core. Every project must follow its rules, with no exceptions.
 - **Needs:** Nothing.
 - **Gives:** The writing rules and the STE check for the documents of all folders.
-- **On a new computer:** set it up step 2 of 6 in the core tier.
+- **On a new computer:** set it up step 2 of 7 in the core tier.
 
 This folder is part of the `~/Apps` SOP (Standard Operating Procedure). The
 number in the name of each folder is its tier. The SOP map is a private page. Its link is in the README of
@@ -21,6 +21,7 @@ number in the name of each folder is its tier. The SOP map is a private page. It
 | `000-0-ai` | 0 | AI tools work the same way on every computer and follow the SOP | [000-0-ai](https://github.com/kairin/000-0-ai) |
 | `000-0-workspace` | 0 | All repositories in `~/Apps` stay healthy and consistent | [000-0-workspace](https://github.com/kairin/000-0-workspace) |
 | `000-0-tables` | 0 | You never research the same database question twice, and what you know links across repositories | [000-0-tables](https://github.com/kairin/000-0-tables) |
+| `000-0-ghostty` | 0 | The terminal is current, verified and the same on every computer | [000-0-ghostty](https://github.com/kairin/000-0-ghostty) |
 | `000-111-learn` | 111 | Write very small, fast programs that run close to the hardware | [000-111-learn](https://github.com/kairin/000-111-learn) |
 <!-- key-information:end -->
 
