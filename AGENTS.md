@@ -23,6 +23,18 @@ The checker is an anti-slop denylist. A lint pass is not Issue 9 conformance.
 Source files live in this repository. A downstream delivery repository copies
 the skill to Hermes, Pi, OpenAI Codex CLI, and Google Antigravity (`agy`).
 
+## Owner decisions and unchecked claims
+
+- The owner's stated decision beats a general rule. Before you flag
+  something, check whether the owner already decided on it (repository
+  docs, AGENTS.md, earlier instructions). If they did, do not flag it again.
+- Check a claim yourself before acting on it, above all a claim from an
+  earlier session, a subagent or a report. Look at the file, image or data.
+- Do only what was asked. Do not add new "outstanding issues" to a task, and
+  do not raise again one the owner dismissed.
+- Never propose deleting, purging or unpublishing anything because of a claim
+  you have not checked yourself.
+
 ## Git identity
 
 Commit as `Mister K <678459+kairin@users.noreply.github.com>`. This is the
