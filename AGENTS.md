@@ -6,6 +6,10 @@ This repository is one folder of the owner's `~/Apps` workspace. `~/Apps` is a w
 
 The other agent instruction files in this folder are regular pointer files to this file. They are not symlinks. Do not edit them. Update instructions here only. See `~/Apps/000-0-workspace/docs/agent-instruction-files.md`.
 
+## Secrets
+
+The secret rules of the workspace apply only to real secret values: a real key, token, password or credential. Documentation that tells how to make, store or use a credential is not a secret. A placeholder such as `<REDACTED>` or `PASTE-TOKEN-HERE` is not a secret. Report a secret problem only when you find a real value. Do not report placeholders or setup steps as secret problems.
+
 ## Writing rule
 
 1. LANGUAGE: Write all prose in ASD-STE100 Simplified Technical English.
