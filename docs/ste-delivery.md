@@ -61,7 +61,8 @@ Run the full local payload check from this repository:
 AI_REPO=<path to the AI tools repository> scripts/check-ste-payload.sh
 ```
 
-The check needs `rg` (ripgrep). On RHEL 10, it is in EPEL 10.
+The check needs `rg` (ripgrep). On RHEL 10 (home), it is in EPEL 10. On
+Fedora Asahi Remix (work), it is in the Fedora repositories.
 The check compares the three automatic source files with their package files.
 It then compares those files with each required installed destination.
 The check also makes sure that the two manual files have no package copy.
