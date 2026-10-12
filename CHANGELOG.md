@@ -1,3 +1,7 @@
+## 2026-10-12 Home and work computers
+
+- docs/ste-delivery.md tells where to get `rg` on both computers: RHEL 10 at home and Fedora Asahi Remix at work.
+
 ## 2026-10-11 Website artifact intent
 
 - Added docs/website-artifact-intent.md with the current implementation, adoption tasks, source authority and acceptance checks.
