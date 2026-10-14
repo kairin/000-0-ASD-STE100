@@ -63,3 +63,10 @@ Do not reinstall healthy tools or reinstall for PATH or authentication problems.
 Incomplete checks or repairs block app updates. The local quality checker never installs tools.
 Only DNF repairs use `sudo -n`. Use `sudo -v` first when needed.
 If authorization expires, report the failure. Never run `sudo update`.
+
+## Workflow review follow-up
+
+Use the terms `observed`, `tested`, `source-reviewed`, and `proposed` exactly.
+Do not use a successful command as proof for a check that did not run. Keep
+each core repository note short and keep the full evidence in the workspace
+review.

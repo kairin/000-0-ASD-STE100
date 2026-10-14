@@ -235,3 +235,13 @@ catalog. `000-0-workspace` owns the
 [full procedure](../000-0-workspace/docs/update-and-development-tools.md),
 including first setup, failure paths, preview limits and the ownership table.
 See [dotfiles](../000-0-dotfiles/README.md#development-tools) for tool details.
+
+## Workflow review — 2026-10-15
+
+This review found no runtime defect in this repository. This repository owns
+the writing rules for the review documents. Use these evidence terms in all
+core documents: `observed`, `tested`, `source-reviewed`, and `proposed`.
+
+Do not use `healthy`, `current`, or exit 0 as proof of a check that did not run.
+Keep each repository note short. Put the full evidence in the owner's
+[workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md).

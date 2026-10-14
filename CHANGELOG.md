@@ -1,3 +1,8 @@
+## 2026-10-15: Adversarial update review
+
+- Define the evidence terms for the update workflow review.
+- Keep each core repository note short and scoped to its responsibility.
+
 ## 2026-10-15: Development tool checks
 
 - Add the dotfiles doctor and installer stage before application updates.
