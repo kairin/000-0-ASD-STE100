@@ -1,3 +1,9 @@
+## 2026-10-15: Updater 1.0.001
+
+- Documented core repository sync before release and application checks.
+- Documented local work restoration and the exception to commit/push delivery.
+- Documented the updater release sequence through patch 999.
+
 ## 2026-10-12 Home and work computers
 
 - docs/ste-delivery.md tells where to get `rg` on both computers: RHEL 10 at home and Fedora Asahi Remix at work.

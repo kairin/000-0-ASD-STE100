@@ -180,3 +180,24 @@ bullet. The watermark ban and the metadata ban then stay.
 This is an unofficial, personal skill and is not affiliated with ASD. The
 full ASD-STE100 standard is free at https://asd-ste100.org. ASD-STE100 is a
 registered EU trademark (No. 017966390).
+
+## Core repository sync
+
+Updater `1.0.001` starts with the nine core repositories. It gets remote
+`main`. It advances local `main` only when a fast-forward is possible.
+It saves local changes in a Git recovery snapshot. These changes include
+staged, unstaged and untracked files. It restores the original branch and
+local changes before it starts the next repository. Ignored files stay in place.
+
+The command keeps the recovery snapshot. It does not commit or push local work.
+If a sync or restoration fails, the command reports an incomplete result.
+It stops before it replaces the updater or updates applications.
+It does not discard local commits or force a reset.
+
+After all nine repositories sync, the command checks the published updater release.
+It installs newer updater code from the published tag. Then it restarts once.
+Application updates run last. `--only` limits application updates, not repository sync.
+`--version` and `--check-self` are local checks. `--dry-run` makes no changes.
+
+The release sequence is `1.0.001` through `1.0.999`, then `1.1.0`.
+See the [shared update procedure](../000-0-ai/README.md#update-command).
