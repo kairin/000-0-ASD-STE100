@@ -245,3 +245,12 @@ core documents: `observed`, `tested`, `source-reviewed`, and `proposed`.
 Do not use `healthy`, `current`, or exit 0 as proof of a check that did not run.
 Keep each repository note short. Put the full evidence in the owner's
 [workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md).
+
+## Office toolset and Node.js policy (2026-10-15)
+
+The office toolset checks passed for ripgrep and the other required commands.
+This does not establish STE conformance for a document.
+Keep observed results separate from the owner's latest Node.js LTS target.
+An approved version policy is not evidence that a computer already meets it.
+
+See the [office installation record and shared version policy](../000-0-workspace/docs/office-toolset-2026-10-15.md).

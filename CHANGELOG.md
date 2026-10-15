@@ -1,3 +1,8 @@
+## 2026-10-15: Office toolset and Node.js LTS policy
+
+- Record the office installation checks and their limits.
+- Link the shared Node.js LTS target and the remaining rollout work.
+
 ## 2026-10-15: Adversarial update review
 
 - Define the evidence terms for the update workflow review.
