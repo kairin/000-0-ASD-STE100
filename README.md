@@ -1,5 +1,13 @@
 # ASD-STE100 writing skill
 
+```mermaid
+flowchart TD
+    A["Writing rules and source payload"] --> B["Downstream skill delivery"]
+    A --> C["ste-lint.py prose check"]
+    B --> D["Agent writing tools"]
+    D --> C
+```
+
 <!-- key-information:start -->
 ## Key information
 
