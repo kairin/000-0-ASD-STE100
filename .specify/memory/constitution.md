@@ -1,3 +1,9 @@
+> **Operational status (2026-10-18):** Historical Spec Kit record. Its original
+> ratification text is retained below; retired setup-engine and bootstrap
+> requirements are not current instructions. Read the repository `AGENTS.md`
+> and its shared-policy references for current operation. This record does not
+> authorize installation, new tooling, or changes outside the requested task.
+
 <!--
 Sync Impact Report
 - Version change: unfilled template → 1.0.0 (first ratification)
