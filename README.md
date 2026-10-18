@@ -58,6 +58,17 @@ files in this folder:
   `.txt` file;
 - three links to the skill files.
 
+## Core system contract and public boundary
+
+The full owner system requires the complete manifest-declared core repository set.
+See `../000-0-manifest/docs/core-system-contract.md` and `../000-0-manifest/core-layout.json`
+once published in `M-01` and `M-03`. This checkout alone is partial.
+
+`000-0-manifest` stays public. It contains no personal data and no secrets.
+Report missing members, instructions, or an unestablished shipment baseline as incomplete.
+Do not clone, install, or reset to fix missing members.
+Local `ste-lint.py` and `scripts/check-ste-payload.sh` checks stay independent.
+
 ## References
 
 - Video: [The Cure for AI Slop](https://www.youtube.com/watch?v=uJblcC4lKYw&t=9s)
@@ -100,35 +111,42 @@ group of readers who can read the text without error.
 
 ## Contents
 
-| File | Purpose |
+| File or path | Purpose |
 |---|---|
 | `ste-writing-skill.md` | The skill definition (rules, modes, guards) |
-| `ste-senior-engineer-prompt.md` | Unified senior-engineer + ASD-STE100 system prompt |
-| `ste-recurring-errors.md` | Reference list of the 39 most common writer errors in ASD-STE100 |
 | `ste-lint.py` | Heuristic anti-slop denylist used to score drafts |
+| `ste-recurring-errors.md` | Reference list of common writer errors in ASD-STE100 |
+| `ste-system-append.md` | Standing rule for tool instruction files |
+| `ste-senior-engineer-prompt.md` | Unified senior-engineer and ASD-STE100 system prompt |
+| `skills/ste-writing/` | Derived skill package (`SKILL.md`, `ste-lint.py`, `ste-recurring-errors.md`) |
 | `docs/ste-delivery.md` | Canonical payload and destination map |
 | `scripts/check-ste-payload.sh` | Local source, package, destination, and purge checks |
-| `AGENTS.md` | Five-line standing rule for harnesses that read that file |
+| `AGENTS.md` | Standing rule for harnesses that read that file |
 
 ## Install
 
-This repository is the source of the five-file payload. Author content here.
+This repository is the source of the five canonical payload files. Author all content here.
 
-The supported delivery path is the downstream setup command. It copies the
-automated package to the destinations in [docs/ste-delivery.md](docs/ste-delivery.md):
+Delivery uses manual stages:
 
-```bash
-setup apply
-```
+1. Five canonical source files live in the root of this repository.
+2. Three derived skill package files live in `skills/ste-writing/`: `SKILL.md`, `ste-lint.py`, and `ste-recurring-errors.md`.
+3. Copy `skills/ste-writing/` by hand to installed tool skill directories:
+   - `~/.agents/skills/ste-writing/` (portable directory for Hermes, Pi, OpenAI Codex CLI, and Google Antigravity)
+   - `~/.hermes/skills/ste-writing/` (vendor directory for Hermes)
+   - `~/.gemini/config/skills/ste-writing/` (vendor directory for Google Antigravity)
 
-After delivery, run the checker from this repository:
+The other two files stay separate manual files:
+- `ste-system-append.md` is a manual standing rule. Add its text to a tool instruction file when needed.
+- `ste-senior-engineer-prompt.md` is a manual prompt. Pass it as a system prompt when needed.
+
+After you copy the files, run the checker from this repository:
 
 ```bash
 uv run ste-lint.py README.md
 ```
 
-The downstream repository owns packaging and installation. This repository
-does not write files in an agent home directory.
+This repository does not write files to a home directory.
 
 ## Use
 
@@ -147,9 +165,7 @@ Run the same command next to the skill file the agent loaded.
 
 ## Standing rule outside the skill trigger
 
-The skill fires when a task matches its description. The downstream delivery
-system copies the three-file skill package to supported skill directories.
-The standing rule file remains manual.
+The skill loads when a task matches its description. Copy the three derived skill package files to supported skill directories by hand. The standing rule file stays manual.
 
 1. **Hermes.** The package uses the portable and Hermes vendor destinations.
 2. **Pi.** The package uses the portable destination.
@@ -189,31 +205,12 @@ This is an unofficial, personal skill and is not affiliated with ASD. The
 full ASD-STE100 standard is free at https://asd-ste100.org. ASD-STE100 is a
 registered EU trademark (No. 017966390).
 
-## Core repository sync
+## Core repository sync and update procedure
 
-Updater `1.0.002` starts with the nine core repositories. It gets remote
-`main`. It advances local `main` only when a fast-forward is possible.
-It saves local changes in a Git recovery snapshot. These changes include
-staged, unstaged and untracked files. It restores the original branch and
-local changes before it starts the next repository. Ignored files stay in place.
-
-The command keeps the recovery snapshot. It does not commit or push local work.
-If a sync or restoration fails, the command reports an incomplete result.
-It stops before it replaces the updater or updates applications.
-It does not discard local commits or force a reset.
-
-After all nine repositories sync, the command checks the published updater release.
-It installs newer updater code from the published tag. Then it restarts once.
-Application updates run last. `--only` limits application updates, not repository sync.
-`--version` and `--check-self` are local checks. `--dry-run` makes no changes.
-
-The release sequence is `1.0.001` through `1.0.999`, then `1.1.0`.
-See the [shared update procedure](../000-0-ai/README.md#update-command).
-
-## Update startup and automatic calls
-
-Run `update` as your normal user for routine maintenance. It calls the doctor
-and installer automatically when needed.
+Routine maintenance uses the `update` command. The command syncs the core repositories and updates applications.
+For the complete procedure and tool ownership, see
+[update and development tools](../000-0-workspace/docs/update-and-development-tools.md) and
+the [shared update procedure](../000-0-ai/README.md#update-command).
 
 ```mermaid
 flowchart TD
@@ -224,25 +221,10 @@ flowchart TD
     E --> F["Update selected AI tools, Bash tools and Ghostty"]
 ```
 
-This diagram shows the successful path. A failed sync, release check or tool
-repair stops the process before app updates. Healthy tools need no repair.
-
-| Need | Command |
-|---|---|
-| Routine maintenance | `update` |
-| Read-only tool check | `dev-doctor` |
-| Show a repair plan | `dev-install` |
-| Apply repairs | `dev-install --apply` |
-
-Only system-package repairs through DNF need sudo. If needed, run `sudo -v`
-first. Repairs use `sudo -n` and fail if authorization expires.
-Never run `sudo update`. User-owned binary and Ruff repairs need no sudo.
-
-`000-0-ai` owns the updater. `000-0-dotfiles` owns the doctor, installer and
-catalog. `000-0-workspace` owns the
-[full procedure](../000-0-workspace/docs/update-and-development-tools.md),
-including first setup, failure paths, preview limits and the ownership table.
-See [dotfiles](../000-0-dotfiles/README.md#development-tools) for tool details.
+This diagram shows the update flow. Diagrams do not prove runtime or shipment acceptance.
+Source identity and accepted shipment stay separate until `G-SHIP` selection.
+Local STE acceptance boundaries remain independent: `ste-lint.py` is an anti-slop denylist check,
+not Issue 9 conformance.
 
 ## Workflow review — 2026-10-15
 

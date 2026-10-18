@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -eu
 
-repo_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+repo_dir="$(CDPATH='' cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 delivery_doc="$repo_dir/docs/ste-delivery.md"
 ai_repo="${AI_REPO:-}"
 delivery_home="${STE_DELIVERY_HOME:-$HOME}"
-package_dir="$ai_repo/skills/ste-writing"
 ci_mode="${STE_PAYLOAD_CI:-}"
+local_package_dir="$repo_dir/skills/ste-writing"
 
 source_files=(
   "ste-writing-skill.md"
@@ -17,23 +17,17 @@ source_files=(
 )
 
 test -f "$delivery_doc"
-if test "$ci_mode" != 1; then
-  if test -z "$ai_repo"; then
-    echo "set AI_REPO to the path of the AI tools repository" >&2
-    exit 2
-  fi
-  test -d "$package_dir"
-fi
 
 for source_file in "${source_files[@]}"; do
   test -f "$repo_dir/$source_file"
   rg -q --fixed-strings "\`$source_file\`" "$delivery_doc"
 done
 
+# shellcheck disable=SC2016 # Single quotes stop variable expansion in fixed table patterns.
 for mapping in \
-  'ste-writing-skill.md` | `SKILL.md` | Automatic' \
-  'ste-lint.py` | `ste-lint.py` | Automatic' \
-  'ste-recurring-errors.md` | `ste-recurring-errors.md` | Automatic' \
+  'ste-writing-skill.md` | `SKILL.md` | Packaged' \
+  'ste-lint.py` | `ste-lint.py` | Packaged' \
+  'ste-recurring-errors.md` | `ste-recurring-errors.md` | Packaged' \
   'ste-system-append.md` | None | Manual' \
   'ste-senior-engineer-prompt.md` | None | Manual'; do
   rg -q --fixed-strings "$mapping" "$delivery_doc"
@@ -45,15 +39,16 @@ automated_mappings=(
   "ste-recurring-errors.md:ste-recurring-errors.md"
 )
 
-if test "$ci_mode" != 1; then
-  for mapping in "${automated_mappings[@]}"; do
-    source_file="${mapping%%:*}"
-    package_file="${mapping#*:}"
-    test -f "$package_dir/$package_file"
-    cmp -s "$repo_dir/$source_file" "$package_dir/$package_file"
-    echo "source-package match: $source_file -> $package_file"
-  done
-fi
+rm -rf "$local_package_dir/__pycache__"
+test -d "$local_package_dir"
+
+for mapping in "${automated_mappings[@]}"; do
+  source_file="${mapping%%:*}"
+  package_file="${mapping#*:}"
+  test -f "$local_package_dir/$package_file"
+  cmp -s "$repo_dir/$source_file" "$local_package_dir/$package_file"
+  echo "source-package match: $source_file -> $package_file"
+done
 
 manual_files=(
   "ste-system-append.md"
@@ -61,21 +56,50 @@ manual_files=(
 )
 
 for source_file in "${manual_files[@]}"; do
-  if test "$ci_mode" != 1 && test -e "$package_dir/$source_file"; then
-    echo "manual file has a package copy: $source_file" >&2
+  if test -e "$local_package_dir/$source_file"; then
+    echo "manual file has a local package copy: $source_file" >&2
     exit 1
   fi
 done
 
 while IFS= read -r package_file; do
-  case "${package_file#"$package_dir/"}" in
+  case "${package_file#"$local_package_dir/"}" in
     "SKILL.md"|"ste-lint.py"|"ste-recurring-errors.md") ;;
     *)
-      echo "unexpected packaged file: ${package_file#"$package_dir/"}" >&2
+      echo "unexpected packaged file: ${package_file#"$local_package_dir/"}" >&2
       exit 1
       ;;
   esac
-done < <(if test "$ci_mode" != 1; then find "$package_dir" -type f -print; fi)
+done < <(find "$local_package_dir" -type f ! -path '*/__pycache__*' -print)
+
+if test "$ci_mode" != 1 && test -n "$ai_repo" && test -d "$ai_repo/skills/ste-writing"; then
+  ai_package_dir="$ai_repo/skills/ste-writing"
+  for mapping in "${automated_mappings[@]}"; do
+    source_file="${mapping%%:*}"
+    package_file="${mapping#*:}"
+    test -f "$ai_package_dir/$package_file"
+    cmp -s "$repo_dir/$source_file" "$ai_package_dir/$package_file"
+    cmp -s "$local_package_dir/$package_file" "$ai_package_dir/$package_file"
+    echo "source-ai-package match: $source_file -> $package_file"
+  done
+
+  for source_file in "${manual_files[@]}"; do
+    if test -e "$ai_package_dir/$source_file"; then
+      echo "manual file has a transitional package copy: $source_file" >&2
+      exit 1
+    fi
+  done
+
+  while IFS= read -r package_file; do
+    case "${package_file#"$ai_package_dir/"}" in
+      "SKILL.md"|"ste-lint.py"|"ste-recurring-errors.md") ;;
+      *)
+        echo "unexpected transitional packaged file: ${package_file#"$ai_package_dir/"}" >&2
+        exit 1
+        ;;
+    esac
+  done < <(find "$ai_package_dir" -type f ! -path '*/__pycache__*' -print)
+fi
 
 preferred_tool_found=false
 for tool_command in hermes pi codex agy; do
@@ -100,6 +124,11 @@ compare_destination() {
 
     if ! cmp -s "$repo_dir/$source_file" "$destination_file"; then
       echo "drift in $destination_name file: $destination_file" >&2
+      return 1
+    fi
+
+    if ! cmp -s "$local_package_dir/$package_file" "$destination_file"; then
+      echo "drift between local package and $destination_name file: $destination_file" >&2
       return 1
     fi
 
@@ -133,6 +162,7 @@ for tool_name in \
   rg -q --fixed-strings "$tool_name" "$delivery_doc"
 done
 
+# shellcheck disable=SC2088 # Tilde stays literal in documentation table patterns.
 for destination in \
   "~/.agents/skills/ste-writing/" \
   "~/.hermes/skills/ste-writing/" \

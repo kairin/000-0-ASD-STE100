@@ -6,6 +6,17 @@ This repository is one folder of the owner's `~/Apps` workspace. `~/Apps` is a w
 
 The other agent instruction files in this folder are regular pointer files to this file. They are not symlinks. Do not edit them. Update instructions here only. See `~/Apps/000-0-workspace/docs/agent-instruction-files.md`.
 
+## Core system contract and public boundary
+
+The full owner system requires the complete manifest-declared core repository set.
+See `../000-0-manifest/docs/core-system-contract.md` and `../000-0-manifest/core-layout.json`
+once published in `M-01` and `M-03`. This repository checkout alone is partial.
+
+`000-0-manifest` stays public. It contains no personal data and no secrets.
+Report missing members, instructions, or an unestablished shipment baseline as incomplete.
+Do not clone, install, or reset to fix missing members.
+Local `ste-lint.py` and `scripts/check-ste-payload.sh` checks stay independent.
+
 ## Secrets
 
 The secret rules of the workspace apply only to real secret values: a real key, token, password or credential. Documentation that tells how to make, store or use a credential is not a secret. A placeholder such as `<REDACTED>` or `PASTE-TOKEN-HERE` is not a secret. Report a secret problem only when you find a real value. Do not report placeholders or setup steps as secret problems.
@@ -20,8 +31,8 @@ The secret rules of the workspace apply only to real secret values: a real key, 
 
 The checker is an anti-slop denylist. A lint pass is not Issue 9 conformance.
 
-Source files live in this repository. A downstream delivery repository copies
-the skill to Hermes, Pi, OpenAI Codex CLI, and Google Antigravity (`agy`).
+Source files live in this repository. The derived package in `skills/ste-writing/`
+copies to Hermes, Pi, OpenAI Codex CLI, and Google Antigravity (`agy`).
 
 ## Owner decisions and unchecked claims
 
