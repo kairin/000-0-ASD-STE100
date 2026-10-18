@@ -18,8 +18,9 @@ flowchart TD
 - **On a new computer:** set it up step 2 of 7 in the core tier.
 
 This folder is part of the `~/Apps` SOP (Standard Operating Procedure). The
-number in the name of each folder is its tier. The SOP map is a private page. Its link is in the README of
-`000-0-workspace`. Open it, and then select the **ASD-STE100** tab.
+number in its name is its tier. View the current
+[core repository map](https://github.com/kairin/000-0-workspace/blob/main/docs/workspace-layout.md#how-the-core-repositories-work-together).
+The map is in the private workspace repository; GitHub access is required.
 
 | Folder | Tier | Goal | GitHub |
 |---|---|---|---|
