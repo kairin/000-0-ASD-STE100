@@ -1,3 +1,9 @@
+## 2026-10-23: Separate architect guidance
+
+- Route architecture work to the shared system architect and dispatch skills.
+- Remove the proposed profile map and duplicate task contract.
+- Preserve the opt-in model rule and durable issue identity.
+
 ## 2026-10-15: Office toolset and Node.js LTS policy
 
 ## 2026-10-18: Documentation consistency review
