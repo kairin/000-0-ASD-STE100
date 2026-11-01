@@ -258,7 +258,7 @@ the writing rules for the review documents. Use these evidence terms in all
 core documents: `observed`, `tested`, `source-reviewed`, and `proposed`.
 
 Do not use `healthy`, `current`, or exit 0 as proof of a check that did not run.
-Keep each repository note short. The [dated workspace review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
+Keep each repository note short. The [dated workspace review](https://github.com/kairin/000-0-workspace/blob/86d01c4b3db6edffbaa92a426b117fd30d6cee3e/docs/update-workflow-review-2026-10-15.md)
 holds the full evidence. The handover above holds the current proposed work.
 
 ## Office toolset and Node.js policy (2026-10-15)
