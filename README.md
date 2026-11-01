@@ -1,3 +1,47 @@
+```mermaid
+flowchart TB
+    subgraph Rules["Rules and navigation"]
+        W["000-0-workspace<br/>Shared policies, procedures and architecture"]
+        M["000-0-manifest<br/>Repository inventory and status"]
+        S["000-0-ASD-STE100<br/>Writing standards and prose checker"]
+    end
+
+    subgraph Operations["Machine setup and automation"]
+        A["000-0-ai<br/>AI configuration, skills, safeguards<br/>and update command"]
+        D["000-0-dotfiles<br/>Machine and Bash setup<br/>Development-tool catalog, doctor and installer"]
+        P["000-0-password<br/>Encrypted secrets and with-secret"]
+    end
+
+    subgraph Specialist["Terminal and database guidance"]
+        G["000-0-ghostty<br/>Terminal configuration and integration"]
+        TM["000-0-tmux-cheat-sheet<br/>Persistent terminal and agent sessions"]
+        T["000-0-tables<br/>Database stack, research and reusable patterns"]
+    end
+
+    W -. "shared policies" .-> Operations
+    W -. "shared policies" .-> Specialist
+    M -. "links to responsibility map" .-> W
+    S -. "writing standards" .-> W
+    S -. "source for ste-writing skill" .-> A
+
+    A -->|"calls development-tool checks and repairs"| D
+    A -->|"builds Ghostty and checks configuration"| G
+
+    D -. "Bash integration and fonts" .-> G
+    D -. "provides tmux" .-> TM
+    TM -. "guidance for running agent sessions" .-> A
+
+    P -. "secrets when required" .-> A
+    P -. "credentials when required" .-> T
+```
+
+## Core repository connections
+
+Solid arrows show operational connections. Dotted arrows show guidance, navigation, or support.
+
+
+Workspace policies and STE writing rules apply to all nine core repositories. The manifest lists all nine.
+
 # ASD-STE100 writing skill
 
 ```mermaid
@@ -196,33 +240,26 @@ Read the [shared update procedure](../000-0-workspace/docs/update-and-developmen
 and [repository protection requirements](../000-0-workspace/docs/repository-protection.md).
 They are instructions to read before maintenance work.
 
-## Update startup and automatic calls
+## Current update guidance
 
-Run `update` as your normal user for routine maintenance. It calls the doctor
-and installer automatically when needed.
+Read the [shared maintenance procedure](../000-0-workspace/docs/update-and-development-tools.md)
+for the current update sequence, permissions, and failure behavior. The
+[universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md)
+tracks proposed cross-platform and Linux font work. It does not mean that this
+work is implemented. Read [repository protection](../000-0-workspace/docs/repository-protection.md)
+before maintenance work.
 
-```mermaid
-flowchart TD
-    A["update · 000-0-ai"] --> B["Sync nine core repos and restore local work"]
-    B --> C["Check published updater and restart if newer"]
-    C --> D["Check required dev tools · 000-0-dotfiles"]
-    D --> E["Repair missing or broken tools, then check again"]
-    E --> F["Update selected AI tools, Bash tools and Ghostty"]
-```
+## Historical workflow note — 2026-10-15
 
-Read `../000-0-workspace/docs/update-and-development-tools.md` for commands,
-repair rules, ownership, and failure paths. Also read
-`../000-0-workspace/docs/repository-protection.md` before maintenance work.
-
-## Workflow review — 2026-10-15
+This note records the earlier review. It is not an active task list.
 
 This review found no runtime defect in this repository. This repository owns
 the writing rules for the review documents. Use these evidence terms in all
 core documents: `observed`, `tested`, `source-reviewed`, and `proposed`.
 
 Do not use `healthy`, `current`, or exit 0 as proof of a check that did not run.
-Keep each repository note short. Put the full evidence in the owner's
-[workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md).
+Keep each repository note short. The [dated workspace review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
+holds the full evidence. The handover above holds the current proposed work.
 
 ## Office toolset and Node.js policy (2026-10-15)
 
