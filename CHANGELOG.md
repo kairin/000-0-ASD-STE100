@@ -1,3 +1,12 @@
+## 2026-11-09: Sync the skill source with the package
+
+- `ste-writing-skill.md` now matches `000-0-ai/skills/ste-writing/SKILL.md`
+  again. On 2026-10-25 the package gained `metadata.version` and the Goal,
+  When this applies and Required outcomes sections; this source copy did not.
+- `scripts/check-ste-payload.sh` ignores `__pycache__/` in the package folder.
+  Running `ste-lint.py` creates it, and it is never installed.
+- The local payload check and the CI check pass. Closes #10.
+
 ## 2026-11-09: Correct stale install references
 
 - Constitution: the install route is the `000-0-ai` `skills/ste-writing/`
