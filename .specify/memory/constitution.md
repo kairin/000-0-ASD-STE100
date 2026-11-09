@@ -3,6 +3,7 @@
 > requirements are not current instructions. Read the repository `AGENTS.md`
 > and its shared-policy references for current operation. This record does not
 > authorize installation, new tooling, or changes outside the requested task.
+> Stale install references were corrected by hand on 2026-11-09 on owner instruction; no `/speckit-*` command is installed in this repository.
 
 <!--
 Sync Impact Report
@@ -26,14 +27,14 @@ ASD-STE100 applies to prose: documentation, comments, pull-request text, error m
 This repository is the single source of the skill, the checker, the five-line rule, and the senior-engineer prompt. A downstream delivery repository delivers those files to Hermes, Pi, OpenAI Codex CLI, and Google Antigravity (`agy`). Skill files, the five-line rule, and README install steps MUST NOT hard-code one agent's home path. The checker command is `uv run ste-lint.py` next to the skill file the agent loaded.
 
 ### IV. Standing Rule
-Where a harness has a global-instruction surface that `000-dotfiles` can manage, the five-line rule MUST be injected there. The owner MUST NOT have to type a flag or invoke `/ste-writing` to get the rule on that harness. Skill auto-invoke is the floor on every harness. It is NOT a substitute for a global-instruction surface. A runtime test MUST NOT be claimed for a CLI that is not on the machine.
+Where a harness has a global-instruction surface that the owner's AI tools repository (`000-0-ai`) manages, the five-line rule MUST be injected there. The owner MUST NOT have to type a flag or invoke `/ste-writing` to get the rule on that harness. Skill auto-invoke is the floor on every harness. It is NOT a substitute for a global-instruction surface. A runtime test MUST NOT be claimed for a CLI that is not on the machine.
 
 ### V. Speckit Authors Specs
 `spec.md`, `plan.md`, `tasks.md`, and `.specify/memory/constitution.md` MUST be written only by the `/speckit-*` commands installed in this project. Hand-authoring one of those files when a command exists for that step is a constitution violation.
 
 ## Delivery Constraints
 
-Supported install for this owner's machines is `000-dotfiles` `./setup apply` (or `sync`). A `ln -s` into one agent's skills directory is not the supported path. Manual clone of this repo is for authoring.
+Supported install for this owner's machines: the skill package ships in `000-0-ai` `skills/ste-writing/`, and the `000-0-ai` installer and `update` copy it to each harness's skill folder (see `docs/ste-delivery.md`). A `ln -s` into one agent's skills directory is not the supported path. Manual clone of this repo is for authoring.
 
 `ste-recurring-errors.md` is a reference list. It is not linter input unless the checker reads that file.
 

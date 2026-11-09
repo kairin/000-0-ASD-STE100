@@ -1,3 +1,10 @@
+## 2026-11-09: Correct stale install references
+
+- Constitution: the install route is the `000-0-ai` `skills/ste-writing/`
+  package, copied by the `000-0-ai` installer and `update`. Removed the
+  retired `000-dotfiles` `./setup apply` route. The banner records the hand
+  correction.
+
 ## 2026-11-09: Remove duplicate remediation copy
 
 - Remove `docs/website-artifact-remediation.md`. The shared copy is in `000-0-workspace`.
