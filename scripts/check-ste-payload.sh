@@ -70,6 +70,7 @@ done
 while IFS= read -r package_file; do
   case "${package_file#"$package_dir/"}" in
     "SKILL.md"|"ste-lint.py"|"ste-recurring-errors.md") ;;
+    __pycache__/*) ;;  # bytecode from running ste-lint.py; never packaged
     *)
       echo "unexpected packaged file: ${package_file#"$package_dir/"}" >&2
       exit 1

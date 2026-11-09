@@ -2,10 +2,44 @@
 name: ste-writing
 description: Rewrite prose (docs, READMEs, PR descriptions, error messages, release notes, comments, tool descriptions, system prompts — never code) into ASD-STE100 Simplified Technical English to remove "AI slop". Use when asked to make writing not sound like AI, make docs clear or plain, enforce a controlled writing style, review text for STE violations, or write technical documentation that reads human. Two modes — strict (procedures/safety) and STE-flavored (general prose).
 metadata:
+  version: "1.0.001"
   spec: ASD-STE100 Issue 9 (January 2025)
 ---
 
 # ste-writing
+
+## Goal
+
+Write, rewrite, or review prose in the requested ASD-STE100 Issue 9 mode while
+improving clarity and preserving facts, qualifiers, identifiers, and meaning.
+
+## When this applies
+
+Use for new prose, a rewrite, or a STE review of documentation, procedures,
+messages, and other human-readable text. Do not apply it to code, identifiers,
+or command syntax. Do not use it to flatten marketing copy, essays, or text
+that needs a distinct voice.
+
+## Required outcomes
+
+- Select strict mode for procedures, safety text, and other controlled text.
+  Select STE-flavored mode for general prose.
+- Preserve every fact, number, condition, scope limit, code identifier, part
+  number, unit, error string, and safety phrase. Keep text unchanged when it
+  already meets the requested mode.
+- In review mode, do not rewrite. Return one row per violation in a table with
+  `Rule | Original | Simplified`, then state what you left unchanged and why.
+- Check the actual text with the relevant rule set. For prose lint, use the
+  target for the selected mode and make no more than two correction passes.
+  Report the measured score when lint runs; if lint does not run, say that the
+  score is unmeasured.
+- Treat lint as a mechanical check, not proof of full ASD-STE100 conformance.
+  Describe unresolved violations instead of claiming a clean result.
+- Use synthetic text without private user material in validation fixtures.
+
+Evidence for a rewrite or new text is the delivered text and the checked input
+facts. Evidence for review is the violation table and unchanged-text note.
+Evidence for a lint claim is the actual lint result, mode, and score.
 
 Write prose in ASD-STE100 Simplified Technical English (Issue 9: 53 rules in 9 sections, 875 approved words). This applies to documentation, READMEs, pull-request text, error messages, release notes, comments, tool descriptions, system prompts, and agent-to-agent messages. It does not apply to code, identifiers, or command syntax. It is not for marketing copy, essays, or anything that needs a voice — STE strips voice on purpose.
 
