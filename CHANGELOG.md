@@ -1,3 +1,9 @@
+## 2026-11-09: Remove duplicate remediation copy
+
+- Remove `docs/website-artifact-remediation.md`. The shared copy is in `000-0-workspace`.
+- Link `docs/website-artifact-intent.md` to the shared copy.
+- Record that STE-1 closed on 2026-10-08 in `GITIGNORE-REVIEW.md`. Only the reviewer step is open.
+
 ## 2026-10-31: Update guidance links
 
 - Replace the copied update flow with links to the shared procedure and the current handover.

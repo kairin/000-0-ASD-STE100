@@ -1,6 +1,6 @@
 # Gitignore review: 000-0-ASD-STE100
 
-**Status:** open. It waits for a reviewer. **Date:** 2026-09-28.
+**Status:** STE-1 closed on 2026-10-08. Only the reviewer step is open. **Date:** 2026-09-28.
 
 This review asks one question: are there files in Git that should be ignored? The repository is `kairin/000-0-ASD-STE100`, and it is public.
 
