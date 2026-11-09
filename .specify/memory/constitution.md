@@ -3,7 +3,7 @@
 > requirements are not current instructions. Read the repository `AGENTS.md`
 > and its shared-policy references for current operation. This record does not
 > authorize installation, new tooling, or changes outside the requested task.
-> Stale install references were corrected by hand on 2026-11-09 on owner instruction; no `/speckit-*` command is installed for Claude in this repository.
+> Stale install references were corrected by hand on 2026-11-09 on owner instruction; no `/speckit-*` command is installed in this repository.
 
 <!--
 Sync Impact Report
