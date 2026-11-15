@@ -25,10 +25,9 @@ DEALINGS IN THE SOFTWARE.
 This license covers the original code and prose in this repo. It does not
 cover two kinds of material this repo derives from other sources.
 
-The first kind is example data. `before-after-samples.md` and
-`experiment-results.md` hold samples and results built on the method shown
-in the video and source repo named in the README. Credit for that method
-goes to its author.
+The first kind is the method shown in the video and source repo named in
+the README. This repo builds its rules and checks on that method. Credit for
+that method goes to its author.
 
 The second kind is `ste-recurring-errors.md`. It restates a 39-item error
 list from ASD-STE100 Issue 9 as a reference list for writers. The checker

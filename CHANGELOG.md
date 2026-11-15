@@ -33,6 +33,9 @@
 
 ## 2026-10-15: Office toolset and Node.js LTS policy
 
+- Record the office installation checks and their limits.
+- Link the shared Node.js LTS target and the remaining rollout work.
+
 ## 2026-10-18: Documentation consistency review
 
 - Route readers to the current core map and owning procedures.
@@ -42,9 +45,6 @@
 
 - Link shared workspace rules instead of repeating them in repository guides.
 - Keep local commands, checks, and README diagrams.
-
-- Record the office installation checks and their limits.
-- Link the shared Node.js LTS target and the remaining rollout work.
 
 ## 2026-10-15: Adversarial update review
 
