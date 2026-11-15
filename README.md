@@ -93,7 +93,7 @@ The downstream delivery work is tracked in
 ## Workspace layout
 
 This repository lives at `~/Apps/000-0-ASD-STE100`. The table in "Key
-information" above lists the other five `000-0-` folders.
+information" above lists the other six `000-0-` folders.
 
 Three places in the configuration of the AI tools on this computer point to
 files in this folder:
